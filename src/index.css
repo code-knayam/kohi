@@ -8,7 +8,14 @@
   src: local('Nunito-Light'), url("./assets/fonts/Nunito-Light.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: 'Nunito-BoldItalic';
+  src: local('Nunito-BoldItalic'), url("./assets/fonts/Nunito-BoldItalic.ttf") format("truetype");
+}
+
 :root {
+  --global-font-size: 10px;
+
   --primary-bg: #EEDCC6;
   --secondary-bg: #230C02;
   --tertiary-bg: #FFF5E9;
@@ -24,6 +31,13 @@
   --spacing-6: 24px;
   --spacing-7: 32px;
   --spacing-8: 48px;
+
+  --border-radius-sm: 4px;
+  --border-radius-lg: 20px;
+
+  --border-color-primary: #230C02;
+  --border-color-secondary: #FFF5E9;
+
 
   --border-thickness-1: 1px;
   --border-thickness-2: 2px;
@@ -46,4 +60,5 @@ a {
 body {
   background: var(--primary-bg);
   color: var(--font-color-primary);
+  font-size: var(--global-font-size);
 }

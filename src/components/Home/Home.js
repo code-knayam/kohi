@@ -8,13 +8,13 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="Home">
-				<div className="header">
+				<div className="header-container">
 					<Header />
 				</div>
-				<div className="content">
+				<div className="content-container">
 					<Outlet />
 				</div>
-				<div className="navbar">
+				<div className="navbar-container">
 					<Navbar />
 				</div>
 			</div>
