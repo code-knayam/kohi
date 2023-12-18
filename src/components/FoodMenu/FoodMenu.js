@@ -1,5 +1,7 @@
 import { Component } from "react";
 import "./FoodMenu.scss";
+import Carousal from "../shared/Carousal/Carousal";
+import MenuItem from "../shared/MenuItem/MenuItem";
 
 class FoodMenu extends Component {
 	render() {
@@ -9,12 +11,12 @@ class FoodMenu extends Component {
 					<h2 className="heading">What would you like to drink today?</h2>
 
 					<div className="carousal-container">
-						<div className="carousal-item">Popular</div>
+						<Carousal></Carousal>
 					</div>
 				</div>
 
 				<div className="food-menu-items">
-					<div className="food-menu-item"></div>
+					<MenuItem></MenuItem>
 				</div>
 			</div>
 		);
