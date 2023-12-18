@@ -43,7 +43,7 @@ class Navbar extends Component {
 
 	setActiveBorderPosition() {
 		setTimeout(() => {
-			const activeNav = document.querySelectorAll(".active");
+			const activeNav = document.querySelectorAll(".active-nav-item");
 			const left = activeNav[0].getBoundingClientRect().left;
 			this.activeBorderRef.current.style.left = `${left}px`;
 			this.activeBorderRef.current.style.display = "block";
@@ -60,7 +60,9 @@ class Navbar extends Component {
 				<li className="nav-item" key={key} onClick={this.handleLinkClick}>
 					<NavLink
 						to={item.link}
-						className={({ isActive }) => "link" + (isActive ? " active" : "")}
+						className={({ isActive }) =>
+							"link" + (isActive ? " active-nav-item" : "")
+						}
 					>
 						<span className="icon">
 							<FontAwesomeIcon icon={item.icon} size="lg" />

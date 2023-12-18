@@ -1,6 +1,6 @@
 import { Component } from "react";
 import "./FoodMenu.scss";
-import Carousal from "../shared/Carousal/Carousal";
+import Carousel from "../shared/Carousel/Carousel";
 import MenuItem from "../shared/MenuItem/MenuItem";
 
 class FoodMenu extends Component {
@@ -11,7 +11,7 @@ class FoodMenu extends Component {
 					<h2 className="heading">What would you like to drink today?</h2>
 
 					<div className="carousal-container">
-						<Carousal></Carousal>
+						<Carousel></Carousel>
 					</div>
 				</div>
 

@@ -4,10 +4,10 @@
 		justify-content: space-between;
 		height: 100%;
 		.top-container {
-		padding: 0 var(--spacing-6);
-		background-color: var(--primary-bg);
-
-		.heading {
+			background-color: var(--primary-bg);
+			
+			.heading {
+			padding: 0 var(--spacing-6);
 			font-family: 'Nunito-Regular';
 			font-size: 1.6rem;
 		}

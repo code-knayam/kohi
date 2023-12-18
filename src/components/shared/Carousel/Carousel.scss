@@ -1,0 +1,20 @@
+.carousel-container {
+	.carousel {
+		display: flex;
+		overflow: scroll;
+		.carousel-item {
+			background: var(--primary-bg);
+			color: var(--font-color-primary);
+			padding: var(--spacing-3) var(--spacing-5);
+			font-size: 1rem;
+			border-radius: var(--border-radius-lg);
+			text-wrap: nowrap;
+			margin-right: var(--spacing-4);
+
+			&.active {
+			background: var(--secondary-bg);
+				color: var(--font-color-secondary);
+			}
+		}
+	}
+}
