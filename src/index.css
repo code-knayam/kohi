@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: 'Nunito-BoldItalic';
-  src: local('Nunito-BoldItalic'), url("./assets/fonts/Nunito-BoldItalic.ttf") format("truetype");
+  font-family: 'Nunito-LightItalic';
+  src: local('Nunito-LightItalic'), url("./assets/fonts/Nunito-LightItalic.ttf") format("truetype");
 }
 
 :root {

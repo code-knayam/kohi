@@ -1,0 +1,16 @@
+.food-menu-container {
+	display: flex;
+		justify-content: space-between;
+		padding: 0 var(--spacing-6);
+
+	.top-container {
+		background-color: var(--primary-bg);
+		height: 200px;
+
+		.heading {
+			font-family: 'Nunito-Regular';
+			font-size: 1.8rem;
+			width: 70%;
+		}
+	}
+}

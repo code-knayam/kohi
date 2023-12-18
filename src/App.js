@@ -7,9 +7,10 @@ import {
 } from "react-router-dom";
 import Home from "./components/Home/Home";
 
-import Menu from "./components/Menu/Menu";
+import FoodMenu from "./components/FoodMenu/FoodMenu";
 import Cart from "./components/Cart/Cart";
 import Profile from "./components/Profile/Profile";
+import Auth from "./components/Auth/Auth";
 
 function App() {
 	return (
@@ -18,10 +19,11 @@ function App() {
 				<Routes>
 					<Route path="" element={<Navigate to="/home" replace />}></Route>
 					<Route path="/" element={<Home />}>
-						<Route path="home" element={<Menu />}></Route>
+						<Route path="home" element={<FoodMenu />}></Route>
 						<Route path="cart" element={<Cart />}></Route>
 						<Route path="profile" element={<Profile />}></Route>
 					</Route>
+					<Route path="/auth" element={<Auth />}></Route>
 					<Route path="*" element={<div />} />
 				</Routes>
 			</div>
