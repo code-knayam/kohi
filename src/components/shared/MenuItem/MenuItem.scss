@@ -6,13 +6,16 @@
 	border-radius: var(--border-radius-md);
 
 	.content {
-		padding: var(--spacing-5);
+		padding: var(--spacing-5) ;
 		.type {
 			font-size: 1rem;
+			font-family: 'Nunito-Regular';
 		}
 		
 		.name {
-			font-size: 1.4rem;		
+			margin-top: var(--spacing-3);
+			font-size: 1.6rem;	
+			font-family: 'Nunito-SemiBold';	
 		}
 	}
 	.image-container {
@@ -20,7 +23,7 @@
 		display: flex;
 		img {
 			aspect-ratio: 1;
-			height: 100px;
+			height: 75px;
 			border-radius: var(--border-radius-md);
 		}
 	}

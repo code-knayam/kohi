@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: 'Nunito-SemiBold';
+  src: local('Nunito-SemiBold'), url("./assets/fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
   font-family: 'Nunito-LightItalic';
   src: local('Nunito-LightItalic'), url("./assets/fonts/Nunito-LightItalic.ttf") format("truetype");
 }
@@ -58,7 +63,7 @@ a {
   color: var(--font-color-primary);
 }
 
-body {
+html,body {
   background: var(--primary-bg);
   color: var(--font-color-primary);
   font-size: var(--global-font-size);
