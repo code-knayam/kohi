@@ -1,7 +1,9 @@
 .carousel-container {
 	.carousel {
 		display: flex;
-		overflow: scroll;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+
 		.carousel-item {
 			background: var(--primary-bg);
 			color: var(--font-color-primary);
@@ -12,8 +14,12 @@
 			margin-right: var(--spacing-4);
 
 			&.active {
-			background: var(--secondary-bg);
+				background: var(--secondary-bg);
 				color: var(--font-color-secondary);
+			}
+
+			&:first-child {
+				margin-left: var(--spacing-6);
 			}
 		}
 	}

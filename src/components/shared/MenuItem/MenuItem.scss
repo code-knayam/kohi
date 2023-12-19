@@ -1,0 +1,27 @@
+.menu-item {
+	background: var(--tertiary-bg);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-radius: var(--border-radius-md);
+
+	.content {
+		padding: var(--spacing-5);
+		.type {
+			font-size: 1rem;
+		}
+		
+		.name {
+			font-size: 1.4rem;		
+		}
+	}
+	.image-container {
+		padding: var(--spacing-3);
+		display: flex;
+		img {
+			aspect-ratio: 1;
+			height: 100px;
+			border-radius: var(--border-radius-md);
+		}
+	}
+}

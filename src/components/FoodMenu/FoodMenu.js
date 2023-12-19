@@ -17,6 +17,13 @@ class FoodMenu extends Component {
 
 				<div className="food-menu-items">
 					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
+					<MenuItem></MenuItem>
 				</div>
 			</div>
 		);

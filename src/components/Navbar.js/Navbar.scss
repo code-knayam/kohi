@@ -1,9 +1,7 @@
 .navbar {
 	background-color: var(--primary-bg);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-
+	position: relative;
+	
 	.nav-items {
 		list-style: none;
 		display: flex;

@@ -33,6 +33,7 @@
   --spacing-8: 48px;
 
   --border-radius-sm: 4px;
+  --border-radius-md: 10px;
   --border-radius-lg: 20px;
 
   --border-color-primary: #230C02;
@@ -61,4 +62,8 @@ body {
   background: var(--primary-bg);
   color: var(--font-color-primary);
   font-size: var(--global-font-size);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
