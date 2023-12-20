@@ -5,6 +5,7 @@ import image1 from "./../../assets/images/coffee-1.png";
 import image2 from "./../../assets/images/coffee-2.jpg";
 import image3 from "./../../assets/images/coffee-3.png";
 import image4 from "./../../assets/images/coffee-4.jpg";
+import { useNavigate } from "react-router-dom";
 
 const MENU_ITEMS = [
 	{
@@ -57,9 +58,21 @@ const CAROUSEL_ITEMS = [
 ];
 
 function FoodMenu() {
+	const navigate = useNavigate();
+
+	const handleMenuItemClick = (itemId) => {
+		navigate(`/details/${itemId}`);
+	};
+
 	const renderMenuItems = () => {
 		return MENU_ITEMS.map((item) => {
-			return <MenuItem menuItem={item} key={item.id} />;
+			return (
+				<MenuItem
+					menuItem={item}
+					key={item.id}
+					clickHandler={() => handleMenuItemClick(item.id)}
+				/>
+			);
 		});
 	};
 

@@ -1,8 +1,8 @@
 import "./MenuItem.scss";
 
-function MenuItem({ menuItem }) {
+function MenuItem({ menuItem, clickHandler }) {
 	return (
-		<div className="menu-item">
+		<div className="menu-item" onClick={clickHandler}>
 			<div className="content">
 				<p className="type">{menuItem.type}</p>
 				<p className="name">{menuItem.name}</p>
