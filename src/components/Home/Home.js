@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import "./Home.scss";
 import Header from "../Header/Header";
-import Navbar from "../Navbar.js/Navbar";
+import Navbar from "../Navbar/Navbar";
 
 function Home() {
 	return (

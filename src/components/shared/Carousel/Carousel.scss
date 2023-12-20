@@ -12,8 +12,9 @@
 			border-radius: var(--border-radius-lg);
 			text-wrap: nowrap;
 			margin-right: var(--spacing-4);
-
-			&.active {
+			transition: var(--transition-speed-2) all ease;
+			
+			&.active-carousel-item {
 				background: var(--secondary-bg);
 				color: var(--font-color-secondary);
 			}

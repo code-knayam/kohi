@@ -1,15 +1,14 @@
 import "./MenuItem.scss";
-import image from "./../../../assets/images/coffee-1.png";
 
-function MenuItem() {
+function MenuItem({ menuItem }) {
 	return (
 		<div className="menu-item">
 			<div className="content">
-				<p className="type">Black Coffee</p>
-				<p className="name">Iced Americano</p>
+				<p className="type">{menuItem.type}</p>
+				<p className="name">{menuItem.name}</p>
 			</div>
 			<div className="image-container">
-				<img src={image} alt="" />
+				<img src={menuItem.img} alt={menuItem.name} />
 			</div>
 		</div>
 	);

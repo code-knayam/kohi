@@ -1,16 +1,29 @@
+import { useState } from "react";
 import "./Carousel.scss";
 
-function Carousel() {
+function Carousel({ items }) {
+	const [activeItemIndex, setActiveItemIndex] = useState(0);
+
+	const handleOnClick = (index) => {
+		setActiveItemIndex(index);
+	};
+
 	return (
 		<div className="carousel-container">
 			<div className="carousel">
-				<div className="carousel-item active">Popular</div>
-				<div className="carousel-item">Popular</div>
-				<div className="carousel-item">Popular</div>
-				<div className="carousel-item">Popular</div>
-				<div className="carousel-item">Popular</div>
-				<div className="carousel-item">Popular</div>
-				<div className="carousel-item ">Black Coffee</div>
+				{items.map((item, index) => {
+					return (
+						<div
+							key={item.id}
+							className={`carousel-item ${
+								activeItemIndex === index && "active-carousel-item"
+							}`}
+							onClick={() => handleOnClick(index)}
+						>
+							{item.label}
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

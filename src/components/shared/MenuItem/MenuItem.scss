@@ -15,15 +15,16 @@
 		.name {
 			margin-top: var(--spacing-3);
 			font-size: 1.6rem;	
-			font-family: 'Nunito-SemiBold';	
+			font-family: 'Nunito-SemiBold';
+			text-transform: uppercase;	
 		}
 	}
 	.image-container {
 		padding: var(--spacing-3);
 		display: flex;
 		img {
-			aspect-ratio: 1;
-			height: 75px;
+			width: 70px;
+			height: 90px;
 			border-radius: var(--border-radius-md);
 		}
 	}
