@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import React, { Component, createRef } from "react";
 import "./Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +6,7 @@ import {
 	faCartShopping,
 	faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef } from "react";
 
 const NAV_ITEMS = [
 	{
@@ -31,33 +31,30 @@ const NAV_ITEMS = [
 	},
 ];
 
-class Navbar extends Component {
-	constructor(props) {
-		super(props);
-		this.activeBorderRef = createRef();
-	}
+function Navbar() {
+	const activeBorderRef = useRef();
 
-	componentDidMount() {
-		this.setActiveBorderPosition();
-	}
+	useEffect(() => {
+		setActiveBorderPosition();
+	}, []);
 
-	setActiveBorderPosition() {
+	const setActiveBorderPosition = () => {
 		setTimeout(() => {
 			const activeNav = document.querySelectorAll(".active-nav-item");
 			const left = activeNav[0].getBoundingClientRect().left;
-			this.activeBorderRef.current.style.left = `${left}px`;
-			this.activeBorderRef.current.style.display = "block";
+			activeBorderRef.current.style.left = `${left}px`;
+			activeBorderRef.current.style.display = "block";
 		}, 200);
-	}
-
-	handleLinkClick = () => {
-		this.setActiveBorderPosition();
 	};
 
-	renderNavItems() {
+	const handleLinkClick = () => {
+		setActiveBorderPosition();
+	};
+
+	const renderNavItems = () => {
 		return NAV_ITEMS.map((item, key) => {
 			return (
-				<li className="nav-item" key={key} onClick={this.handleLinkClick}>
+				<li className="nav-item" key={key} onClick={handleLinkClick}>
 					<NavLink
 						to={item.link}
 						className={({ isActive }) =>
@@ -71,16 +68,14 @@ class Navbar extends Component {
 				</li>
 			);
 		});
-	}
+	};
 
-	render() {
-		return (
-			<div className="navbar">
-				<ul className="nav-items">{this.renderNavItems()}</ul>
-				<span ref={this.activeBorderRef} className="active-border"></span>
-			</div>
-		);
-	}
+	return (
+		<div className="navbar">
+			<ul className="nav-items">{renderNavItems()}</ul>
+			<span ref={activeBorderRef} className="active-border"></span>
+		</div>
+	);
 }
 
 export default Navbar;
