@@ -61,7 +61,7 @@ function FoodMenu() {
 	const navigate = useNavigate();
 
 	const handleMenuItemClick = (itemId) => {
-		navigate(`/details/${itemId}`);
+		navigate(`/home/details/${itemId}`);
 	};
 
 	const renderMenuItems = () => {

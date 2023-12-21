@@ -25,13 +25,19 @@
   --secondary-bg: #230C02;
   --tertiary-bg: #FFF5E9;
 
+  --list-bg: #3B2C26;
+
   --font-color-primary: #230C02;
   --font-color-secondary: #FFF5E9;
+  --font-color-tertiary: #EEDCC6;
+
+  --list-font-color: #aeaeae;
 
   --spacing-1: 1px;
   --spacing-2: 2px;
   --spacing-3: 4px;
   --spacing-4: 8px;
+  --spacing-4-5: 12px;
   --spacing-5: 16px;
   --spacing-6: 24px;
   --spacing-7: 32px;
@@ -44,7 +50,6 @@
 
   --border-color-primary: #230C02;
   --border-color-secondary: #FFF5E9;
-
 
   --border-thickness-1: 1px;
   --border-thickness-2: 2px;

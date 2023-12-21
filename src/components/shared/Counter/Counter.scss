@@ -1,0 +1,12 @@
+.counter-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
+	box-sizing: border-box;
+	color: var(--font-color-tertiary);
+	border: var(--border-thickness-1) solid var(--primary-bg);
+	border-radius: var(--border-radius-lg);
+	padding: var(--spacing-4-5) var(--spacing-6);
+	font-size: 1.4rem;
+}
