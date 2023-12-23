@@ -58,7 +58,7 @@ function Navbar() {
 					<NavLink
 						to={item.link}
 						className={({ isActive }) =>
-							"link" + (isActive ? " active-nav-item" : "")
+							`link ${isActive && " active-nav-item"}`
 						}
 					>
 						<span className="icon">

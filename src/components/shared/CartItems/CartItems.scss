@@ -1,0 +1,66 @@
+.order-items {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-5);
+	padding: var(--spacing-5) 0;
+	border-bottom: var(--border-thickness-2) solid var(--border-color-primary);
+
+	.order-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+		font-size: 1.6rem;
+
+		.item-info {
+			display: flex;
+			flex-direction: column;
+
+			.item-desc {
+				.item-name {
+					font-family: 'Nunito-SemiBold';
+				}
+
+				.icon {
+					margin: 0 var(--spacing-4);
+				}
+			}
+
+			.size {
+				font-size: 1.4rem;
+				text-transform: capitalize;
+				font-family: 'Nunito-LightItalic';
+			}
+		}
+	}
+}
+
+.cart-price-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-4);
+	padding: var(--spacing-5) 0;
+
+	.price-item {
+		display: flex;
+		justify-content: space-between;
+
+		.label {
+			font-size: 1.4rem;
+		}
+
+		&.total-price {
+			padding: var(--spacing-5) 0;
+			border-top: var(--border-thickness-2) solid var(--border-color-primary);
+
+			.label {
+				font-size: 1.6rem;
+				text-transform: uppercase;
+			}
+
+			.price {
+				font-size: 1.6rem;
+				font-family: 'Nunito-SemiBold';
+			}
+		}
+	}
+}

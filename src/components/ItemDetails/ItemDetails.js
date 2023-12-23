@@ -3,6 +3,8 @@ import image4 from "./../../assets/images/coffee-2.jpg";
 import SelectableList from "../shared/SelectableList/SelectableList";
 import Counter from "../shared/Counter/Counter";
 import { useState } from "react";
+import Button from "../shared/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const SIZE_ITEMS = [
 	{
@@ -31,6 +33,7 @@ const ITEM_DETAILS = {
 };
 
 function ItemDetails() {
+	const navigate = useNavigate();
 	const [cartCount, setCartCount] = useState(1);
 	const [itemSize, setItemSize] = useState(0);
 
@@ -43,7 +46,9 @@ function ItemDetails() {
 		setItemSize(index);
 	};
 
-	const handleAddToCart = () => {};
+	const handleAddToCart = () => {
+		navigate("/cart");
+	};
 
 	return (
 		<div className="item-details">
@@ -79,9 +84,7 @@ function ItemDetails() {
 							/>
 						</div>
 						<div className="add-to-cart-container">
-							<button onClick={handleAddToCart} className="add-to-cart-btn">
-								Add to Cart
-							</button>
+							<Button handleOnClick={handleAddToCart}>Add to cart</Button>
 						</div>
 					</div>
 				</div>
