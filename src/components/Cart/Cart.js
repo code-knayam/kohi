@@ -36,7 +36,7 @@ function Cart() {
 	return (
 		<div className="cart-container">
 			<div className="cart-contents-container cart-section">
-				<CartItems orderDetails={CART_DETAILS} />
+				<CartItems orderDetails={CART_DETAILS} enableEdit={true} />
 			</div>
 			<Button
 				handleOnClick={onContinueToPay}

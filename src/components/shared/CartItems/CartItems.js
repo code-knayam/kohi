@@ -1,8 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMultiply } from "@fortawesome/free-solid-svg-icons";
+import { faMultiply, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./CartItems.scss";
 
-function CartItems({ orderDetails }) {
+function CartItems({ orderDetails, enableEdit }) {
+	const renderDeleteIcon = () => {
+		if (!enableEdit) return;
+
+		return (
+			<span className="item-delete-icon">
+				<FontAwesomeIcon icon={faTrash} />
+			</span>
+		);
+	};
+
 	const renderOrderItems = () => {
 		return orderDetails.order_items.map((item) => {
 			return (
@@ -18,6 +28,7 @@ function CartItems({ orderDetails }) {
 						<span className="size">{item.size}</span>
 					</div>
 					<div className="item-price">{item.totalPrice}</div>
+					{renderDeleteIcon(item)}
 				</div>
 			);
 		});

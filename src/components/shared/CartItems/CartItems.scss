@@ -6,8 +6,9 @@
 	border-bottom: var(--border-thickness-2) solid var(--border-color-primary);
 
 	.order-item {
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 5fr 1fr auto;
+		grid-auto-flow: column;
 		align-items: start;
 		font-size: 1.6rem;
 
@@ -16,6 +17,9 @@
 			flex-direction: column;
 
 			.item-desc {
+				display: flex;
+				align-items: center;
+
 				.item-name {
 					font-family: 'Nunito-SemiBold';
 				}
@@ -30,6 +34,17 @@
 				text-transform: capitalize;
 				font-family: 'Nunito-LightItalic';
 			}
+		}
+
+		.item-price {
+			text-align: right;
+		}
+
+		.item-delete-icon {
+			opacity: 0.8;
+			justify-self: end;
+			font-size: 1.2rem;
+			margin-left: var(--spacing-6);
 		}
 	}
 }
