@@ -7,6 +7,7 @@ import {
 	faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 import profilePic from "./../../assets/images/profile.jpg";
+import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 
 function Profile() {
 	return (
@@ -22,19 +23,40 @@ function Profile() {
 
 			<div className="links-container">
 				<div className="link-item">
-					<FontAwesomeIcon icon={faReceipt} />
+					<span>
+						<FontAwesomeIcon icon={faReceipt} />
+					</span>
 					<span>Order History</span>
-					<FontAwesomeIcon icon={faChevronCircleRight} />
+					<span className="right-icon">
+						<FontAwesomeIcon icon={faChevronCircleRight} />
+					</span>
 				</div>
 				<div className="link-item">
-					<FontAwesomeIcon icon={faCircleInfo} />
+					<span>
+						<FontAwesomeIcon icon={faCircleInfo} />
+					</span>
 					<span>About KOHI</span>
-					<FontAwesomeIcon icon={faChevronCircleRight} />
+					<span className="right-icon">
+						<FontAwesomeIcon icon={faChevronCircleRight} />
+					</span>
+				</div>
+				<div className="link-item">
+					<span>
+						<FontAwesomeIcon icon={faEthereum} />
+					</span>
+					<span>Disconnect MetaMask</span>
+					<span className="right-icon">
+						<FontAwesomeIcon icon={faChevronCircleRight} />
+					</span>
 				</div>
 				<div className="link-item signout">
-					<FontAwesomeIcon icon={faArrowRightFromBracket} />
+					<span>
+						<FontAwesomeIcon icon={faArrowRightFromBracket} />
+					</span>
 					<span>Sign Out</span>
-					<FontAwesomeIcon icon={faChevronCircleRight} />
+					<span className="right-icon">
+						<FontAwesomeIcon icon={faChevronCircleRight} />
+					</span>
 				</div>
 			</div>
 		</div>

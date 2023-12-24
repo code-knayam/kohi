@@ -62,6 +62,10 @@
 			grid-template-columns: 1fr 5fr 1fr;
 			margin-bottom: var(--spacing-6);
 			align-items: center;
+
+			.right-icon {
+				text-align: right;
+			}
 			
 			&.signout {
 				padding-top: var(--spacing-6);
