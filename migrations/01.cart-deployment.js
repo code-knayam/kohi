@@ -1,5 +1,5 @@
-const cart = artifacts.require("Cart");
+const CartSale = artifacts.require("CartSale");
 
 module.exports = function (deployer, network, accounts) {
-	deployer.deploy(cart, accounts[0]);
+	deployer.deploy(CartSale);
 };
