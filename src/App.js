@@ -14,6 +14,10 @@ import Auth from "./components/Auth/Auth";
 import ItemDetails from "./components/ItemDetails/ItemDetails";
 import Orders from "./components/Orders/Orders";
 
+import cartSaleContract from "./contracts/CartSale.json";
+
+const cartSaleABI = cartSaleContract.abi;
+
 function App() {
 	return (
 		<Router>
