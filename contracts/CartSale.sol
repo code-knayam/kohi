@@ -14,7 +14,7 @@ contract CartSale {
     struct Orders {
         uint userId;
         uint numOrders;
-        // mapping(uint => Order) orders;
+        mapping(uint => Order) orders;
     }
 
     mapping(address => Orders) public usersOrders;
@@ -28,7 +28,7 @@ contract CartSale {
     constructor() {}
 
     function purchaseCoffee(
-        uint256 _amount,
+        uint _amount,
         uint orderId,
         uint userId,
         uint items
@@ -44,16 +44,22 @@ contract CartSale {
             "Insufficient account balance"
         );
 
-        // Order memory newOrder = Order(orderId, _amount, items, block.timestamp);
-        Orders memory newOrders = Orders(0, userId);
-        usersOrders[msg.sender] = newOrders;
-        // usersOrders[msg.sender].userId = userId;
-        // usersOrders[msg.sender].orders[
-        //     usersOrders[msg.sender].numOrders
-        // ] = newOrder;
+        Order memory newOrder = Order(orderId, _amount, items, block.timestamp);
+        usersOrders[msg.sender].userId = userId;
+        usersOrders[msg.sender].orders[
+            usersOrders[msg.sender].numOrders
+        ] = newOrder;
+        usersOrders[msg.sender].numOrders++;
 
         payable(sellerAccount).transfer(amountInWei);
 
         emit TransactionComplete(msg.sender, sellerAccount, amountInWei);
+    }
+
+    function getOrderInfo(
+        address _user,
+        uint _orderNum
+    ) public view returns (Order memory) {
+        return usersOrders[_user].orders[_orderNum];
     }
 }
