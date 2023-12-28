@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../shared/Button/Button";
 import CartItems from "../shared/CartItems/CartItems";
 import "./Cart.scss";
+import useCheckoutCart from "../../hooks/useCart";
 
 const CART_DETAILS = {
 	price: {
@@ -28,8 +29,10 @@ const CART_DETAILS = {
 
 function Cart() {
 	const navigate = useNavigate();
+	const { purchaseCoffee } = useCheckoutCart();
 
-	const onContinueToPay = () => {
+	const onContinueToPay = async () => {
+		await purchaseCoffee(1);
 		navigate("/cart/123");
 	};
 

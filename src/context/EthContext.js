@@ -12,9 +12,14 @@ function EthProvider({ children }) {
 		contract: null,
 	});
 
+	const [accountDetails, setAccountDetails] = useState({
+		acc: null,
+		balance: null,
+	});
+
 	const init = useCallback(async (artifact) => {
 		if (artifact) {
-			const web3 = new Web3(Web3.givenProvider || "http://127.0.0.1:7545");
+			const web3 = new Web3(window.ethereum);
 			const networkId = await web3.eth.net.getId();
 			const abi = artifact.abi;
 			let address, contract;
@@ -28,6 +33,13 @@ function EthProvider({ children }) {
 			setEthState({ artifact, web: web3, networkId, contract });
 		}
 	}, []);
+
+	const updateAccount = (acc, balance) => {
+		setAccountDetails({
+			acc,
+			balance,
+		});
+	};
 
 	useEffect(() => {
 		console.log("start init");
@@ -46,7 +58,15 @@ function EthProvider({ children }) {
 		};
 	}, [init, cartSaleContract]);
 
-	return <EthContext.Provider value={ethState}>{children}</EthContext.Provider>;
+	const providerValue = {
+		ethState,
+		accountDetails,
+		updateAccount,
+	};
+
+	return (
+		<EthContext.Provider value={providerValue}>{children}</EthContext.Provider>
+	);
 }
 
 export { EthProvider };

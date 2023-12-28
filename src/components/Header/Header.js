@@ -5,11 +5,10 @@ import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 import "./Header.scss";
 import { useState } from "react";
 import Button from "../shared/Button/Button";
-// import useEthContext from "../../hooks/useEthContext";
-import Web3 from "web3";
+import useEthContext from "../../hooks/useEthContext";
 
 function Header() {
-	// const ethState = useEthContext();
+	const { ethState, updateAccount } = useEthContext();
 	const [isMetaMaskConnected, setMetaMaskConnected] = useState(false);
 	const [balance, setBalance] = useState(0);
 
@@ -18,12 +17,13 @@ function Header() {
 		if (provider) {
 			await provider.request({ method: "eth_requestAccounts" });
 
-			const web3 = new Web3(provider);
+			const web3 = ethState.web;
 			const accounts = await web3.eth.getAccounts();
 			const bal = await web3.eth.getBalance(accounts[0]);
 			const balInEther = web3.utils.fromWei(bal, "ether");
 
 			setBalance(Math.floor(balInEther));
+			updateAccount(accounts[0], balance);
 			setMetaMaskConnected(true);
 		} else {
 			console.log("please install metamask");
