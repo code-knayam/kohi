@@ -3,6 +3,8 @@ import Button from "../shared/Button/Button";
 import CartItems from "../shared/CartItems/CartItems";
 import "./Cart.scss";
 import useCheckoutCart from "../../hooks/useCart";
+import Loader from "../shared/Loader/Loader";
+import { useState } from "react";
 
 const CART_DETAILS = {
 	price: {
@@ -31,23 +33,35 @@ function Cart() {
 	const navigate = useNavigate();
 	const { purchaseCoffee } = useCheckoutCart();
 
+	const [showLoader, setShowLoader] = useState(false);
+
 	const onContinueToPay = async () => {
+		setShowLoader(true);
 		await purchaseCoffee(1);
 		navigate("/cart/123");
+		setShowLoader(false);
 	};
 
 	return (
 		<div className="cart-container">
-			<div className="cart-contents-container cart-section">
-				<CartItems orderDetails={CART_DETAILS} enableEdit={true} />
-			</div>
-			<Button
-				handleOnClick={onContinueToPay}
-				className="show-btn"
-				type="secondary"
-			>
-				Continue To Pay
-			</Button>
+			{showLoader ? (
+				<div class="cart-loader">
+					<Loader />
+				</div>
+			) : (
+				<>
+					<div className="cart-contents-container cart-section">
+						<CartItems orderDetails={CART_DETAILS} enableEdit={true} />
+					</div>
+					<Button
+						handleOnClick={onContinueToPay}
+						className="show-btn"
+						type="secondary"
+					>
+						Continue To Pay
+					</Button>
+				</>
+			)}
 		</div>
 	);
 }

@@ -6,6 +6,10 @@
 	height: 100%;
 	box-sizing: border-box;
 
+	.cart-loader {
+		margin: auto;
+	}
+
 	.cart-section {
 		background: var(--tertiary-bg);
 		padding: var(--spacing-5) var(--spacing-7);
