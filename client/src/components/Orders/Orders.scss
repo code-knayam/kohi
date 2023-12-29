@@ -1,0 +1,58 @@
+.order-container {
+	margin: 0 var(--spacing-5);
+	padding-bottom: var(--spacing-5);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	box-sizing: border-box;
+
+	.cart-section {
+		background: var(--tertiary-bg);
+		padding: var(--spacing-5) var(--spacing-7);
+		font-size: 1.4rem;
+		border-radius: var(--border-radius-md);
+	}
+
+	.label {
+		font-size: 1.6rem;
+		font-family: 'Nunito-SemiBold';
+	}
+
+	.greeting-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0;
+		border-bottom-left-radius: var(--border-radius-md);
+		border-bottom-right-radius: var(--border-radius-md);
+
+		.icon {
+			border: var(--border-thickness-2) solid var(--border-color-primary);
+			border-radius: 50%;
+			padding: var(--spacing-3) var(--spacing-4);
+		}
+
+		.heading {
+			margin: var(--spacing-4) 0 var(--spacing-3);
+		}
+	}
+
+	.order-id-container {
+		margin-top: var(--spacing-5);
+
+		#order-id {
+			margin-left: var(--spacing-5);
+			font-family: 'Nunito-LightItalic';
+		}
+	}
+
+	.cart-contents-container {
+		margin-top: var(--spacing-5);
+		flex: 1;
+	}
+
+	.show-btn {
+		margin-top: var(--spacing-5);
+	}
+}

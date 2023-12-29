@@ -1,0 +1,33 @@
+.cart-container {
+	margin: 0 var(--spacing-5);
+	padding-bottom: var(--spacing-5);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	box-sizing: border-box;
+
+	.cart-loader {
+		margin: auto;
+	}
+
+	.cart-section {
+		background: var(--tertiary-bg);
+		padding: var(--spacing-5) var(--spacing-7);
+		font-size: 1.4rem;
+		border-radius: var(--border-radius-md);
+	}
+
+	.label {
+		font-size: 1.6rem;
+		font-family: 'Nunito-SemiBold';
+	}
+
+	.cart-contents-container {
+		margin-top: var(--spacing-5);
+		flex: 1;
+	}
+
+	.show-btn {
+		margin-top: var(--spacing-5);
+	}
+}

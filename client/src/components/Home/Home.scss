@@ -1,0 +1,19 @@
+.Home {
+	display: flex;
+	flex-direction: column;
+	height: 100%;	
+	.header-container {
+		position: sticky;
+		width: 100%;
+		top: 0;
+		background-color: var(--primary-bg);
+	}
+	.content-container {
+		flex-grow: 1;
+		overflow: auto;
+	}
+	.navbar-container {
+		width: 100%;
+		bottom: 0;
+	}
+}

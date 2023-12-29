@@ -1,0 +1,37 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--spacing-6);
+
+	.greeting {
+		display: flex;
+		align-items: center;
+
+		.icon {
+			font-size: 1.6rem;
+			margin-right: var(--spacing-4);
+			--fa-animation-duration: 2s;
+			--fa-beat-scale: 1.1;
+			color: var(--font-color-primary);
+			opacity: 0.8;
+		}
+
+		.name {
+			font-size: 1.6rem;
+			font-family: 'Nunito-LightItalic';
+		}
+	}
+
+	.balance-container {
+		background-color: var(--tertiary-bg);
+		color: var(--font-color-primary);
+		padding: var(--spacing-3) var(--spacing-5);
+		border-radius: var(--border-radius-lg);
+		border: var(--border-thickness-1) solid var(--border-color-primary);
+
+		.balance {
+			font-size: 1.2rem;
+		}
+
+	}
+}

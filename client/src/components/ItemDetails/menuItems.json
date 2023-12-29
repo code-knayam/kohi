@@ -1,0 +1,334 @@
+{
+	"menu": [
+		{
+			"img": "espresso-img1",
+			"type": "Espresso",
+			"name": "Classic Espresso",
+			"detail": "Intense and bold flavor, perfect for a quick energy boost.",
+			"prices": [
+				"1.5",
+				"2.8",
+				"3.5"
+			]
+		},
+		{
+			"img": "espresso-img2",
+			"type": "Espresso",
+			"name": "Double Shot",
+			"detail": "Twice the intensity for a powerful kickstart.",
+			"prices": [
+				"2.0",
+				"3.5",
+				"4.0"
+			]
+		},
+		{
+			"img": "espresso-img3",
+			"type": "Espresso",
+			"name": "Espresso Macchiato",
+			"detail": "Espresso 'stained' with a dash of milk foam.",
+			"prices": [
+				"1.8",
+				"3.0",
+				"3.8"
+			]
+		},
+		{
+			"img": "espresso-img4",
+			"type": "Espresso",
+			"name": "Ristretto",
+			"detail": "Short, strong, and concentrated shot of espresso.",
+			"prices": [
+				"1.7",
+				"3.2",
+				"4.0"
+			]
+		},
+		{
+			"img": "espresso-img5",
+			"type": "Espresso",
+			"name": "Espresso Con Panna",
+			"detail": "Espresso topped with a dollop of whipped cream.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.5"
+			]
+		},
+		{
+			"img": "latte-img1",
+			"type": "Latte",
+			"name": "Vanilla Latte",
+			"detail": "Smooth espresso with frothy milk and a hint of vanilla.",
+			"prices": [
+				"2.0",
+				"3.5",
+				"4.5"
+			]
+		},
+		{
+			"img": "latte-img2",
+			"type": "Latte",
+			"name": "Caramel Latte",
+			"detail": "Rich espresso combined with caramel syrup and steamed milk.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "latte-img3",
+			"type": "Latte",
+			"name": "Hazelnut Latte",
+			"detail": "Espresso blended with hazelnut flavor and creamy milk.",
+			"prices": [
+				"2.1",
+				"3.7",
+				"4.6"
+			]
+		},
+		{
+			"img": "latte-img4",
+			"type": "Latte",
+			"name": "Oat Milk Latte",
+			"detail": "Espresso and steamed oat milk for a dairy-free delight.",
+			"prices": [
+				"2.3",
+				"4.0",
+				"5.0"
+			]
+		},
+		{
+			"img": "latte-img5",
+			"type": "Latte",
+			"name": "Matcha Latte",
+			"detail": "Espresso combined with finely ground Japanese green tea.",
+			"prices": [
+				"2.5",
+				"4.2",
+				"5.2"
+			]
+		},
+		{
+			"img": "cappuccino-img1",
+			"type": "Cappuccino",
+			"name": "Classic Cappuccino",
+			"detail": "Equal parts espresso, steamed milk, and milk foam.",
+			"prices": [
+				"2.0",
+				"3.5",
+				"4.5"
+			]
+		},
+		{
+			"img": "cappuccino-img2",
+			"type": "Cappuccino",
+			"name": "Chocolate Cappuccino",
+			"detail": "Cappuccino with a delicious twist of chocolate syrup.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "cappuccino-img3",
+			"type": "Cappuccino",
+			"name": "Cinnamon Cappuccino",
+			"detail": "Warm and comforting cappuccino sprinkled with cinnamon.",
+			"prices": [
+				"2.1",
+				"3.7",
+				"4.6"
+			]
+		},
+		{
+			"img": "cappuccino-img4",
+			"type": "Cappuccino",
+			"name": "Honey Cappuccino",
+			"detail": "Sweetened with a drizzle of honey for a delightful taste.",
+			"prices": [
+				"2.3",
+				"4.0",
+				"5.0"
+			]
+		},
+		{
+			"img": "cappuccino-img5",
+			"type": "Cappuccino",
+			"name": "Irish Cream Cappuccino",
+			"detail": "Cappuccino infused with the flavors of Irish cream.",
+			"prices": [
+				"2.5",
+				"4.2",
+				"5.2"
+			]
+		},
+		{
+			"img": "mocha-img1",
+			"type": "Mocha",
+			"name": "Classic Mocha",
+			"detail": "Rich chocolate, espresso, and steamed milk topped with foam.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "mocha-img2",
+			"type": "Mocha",
+			"name": "White Chocolate Mocha",
+			"detail": "Mocha infused with smooth white chocolate.",
+			"prices": [
+				"2.3",
+				"4.0",
+				"5.0"
+			]
+		},
+		{
+			"img": "mocha-img3",
+			"type": "Mocha",
+			"name": "Peppermint Mocha",
+			"detail": "Mocha with a refreshing hint of peppermint flavor.",
+			"prices": [
+				"2.5",
+				"4.2",
+				"5.2"
+			]
+		},
+		{
+			"img": "mocha-img4",
+			"type": "Mocha",
+			"name": "Toffee Nut Mocha",
+			"detail": "Decadent mocha blended with toffee nut syrup.",
+			"prices": [
+				"2.4",
+				"4.1",
+				"5.1"
+			]
+		},
+		{
+			"img": "mocha-img5",
+			"type": "Mocha",
+			"name": "Coconut Mocha",
+			"detail": "Mocha infused with tropical coconut flavor.",
+			"prices": [
+				"2.6",
+				"4.3",
+				"5.3"
+			]
+		},
+		{
+			"img": "macchiato-img1",
+			"type": "Macchiato",
+			"name": "Caramel Macchiato",
+			"detail": "Espresso 'stained' with caramel and topped with milk foam.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "macchiato-img2",
+			"type": "Macchiato",
+			"name": "Coconut Macchiato",
+			"detail": "Espresso with a hint of coconut syrup and steamed milk.",
+			"prices": [
+				"2.3",
+				"4.0",
+				"5.0"
+			]
+		},
+		{
+			"img": "macchiato-img3",
+			"type": "Macchiato",
+			"name": "Vanilla Macchiato",
+			"detail": "Espresso with a touch of vanilla and velvety milk foam.",
+			"prices": [
+				"2.1",
+				"3.7",
+				"4.6"
+			]
+		},
+		{
+			"img": "macchiato-img4",
+			"type": "Macchiato",
+			"name": "Toffee Macchiato",
+			"detail": "Espresso layered with toffee syrup and creamy milk.",
+			"prices": [
+				"2.4",
+				"4.1",
+				"5.1"
+			]
+		},
+		{
+			"img": "macchiato-img5",
+			"type": "Macchiato",
+			"name": "Honeycomb Macchiato",
+			"detail": "Espresso with honeycomb syrup and frothy milk.",
+			"prices": [
+				"2.5",
+				"4.2",
+				"5.2"
+			]
+		},
+		{
+			"img": "recommended-img1",
+			"type": "Recommended",
+			"name": "Double Shot",
+			"detail": "Twice the intensity for a powerful kickstart.",
+			"prices": [
+				"2.0",
+				"3.5",
+				"4.0"
+			]
+		},
+		{
+			"img": "recommended-img2",
+			"type": "Recommended",
+			"name": "Caramel Latte",
+			"detail": "Rich espresso combined with caramel syrup and steamed milk.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "recommended-img3",
+			"type": "Recommended",
+			"name": "Classic Cappuccino",
+			"detail": "Equal parts espresso, steamed milk, and milk foam.",
+			"prices": [
+				"2.0",
+				"3.5",
+				"4.5"
+			]
+		},
+		{
+			"img": "recommended-img4",
+			"type": "Recommended",
+			"name": "Classic Mocha",
+			"detail": "Rich chocolate, espresso, and steamed milk topped with foam.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		},
+		{
+			"img": "recommended-img5",
+			"type": "Recommended",
+			"name": "Caramel Macchiato",
+			"detail": "Espresso 'stained' with caramel and topped with milk foam.",
+			"prices": [
+				"2.2",
+				"3.8",
+				"4.7"
+			]
+		}
+	]
+}
