@@ -53,6 +53,21 @@ exports.getItems = onRequest(async (req, res) => {
 	res.json(items);
 });
 
+exports.getCategories = onRequest(async (req, res) => {
+	const db = await getFirestore(app);
+	const categoriesRef = db.collection("categories");
+
+	const querySnapshot = await categoriesRef.get();
+
+	const categories = [];
+
+	querySnapshot.forEach((doc) => {
+		categories.push({ id: doc.id, ...doc.data() });
+	});
+
+	res.json(categories);
+});
+
 exports.setItems = onRequest(async (req, res) => {
 	const db = await getFirestore(app);
 	const promises = [];
