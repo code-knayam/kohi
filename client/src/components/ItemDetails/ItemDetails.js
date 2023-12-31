@@ -1,10 +1,12 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./ItemDetails.scss";
 import image4 from "./../../assets/images/coffee-2.jpg";
 import SelectableList from "../shared/SelectableList/SelectableList";
 import Counter from "../shared/Counter/Counter";
-import { useState } from "react";
 import Button from "../shared/Button/Button";
 import { useNavigate } from "react-router-dom";
+import useMenu from "../../hooks/useMenu";
 
 const SIZE_ITEMS = [
 	{
@@ -34,8 +36,17 @@ const ITEM_DETAILS = {
 
 function ItemDetails() {
 	const navigate = useNavigate();
+	const menu = useMenu();
+	const { id } = useParams();
+
 	const [cartCount, setCartCount] = useState(1);
 	const [itemSize, setItemSize] = useState(0);
+	const [itemDetails, setItemDetails] = useState({});
+
+	useEffect(() => {
+		const details = menu.getItemDetails(id);
+		setItemDetails(details);
+	}, [id]);
 
 	const handleCartCountChange = (isAdd) => {
 		const newCount = isAdd ? cartCount + 1 : cartCount - 1;
@@ -53,13 +64,13 @@ function ItemDetails() {
 	return (
 		<div className="item-details">
 			<div className="image-container">
-				<img src={ITEM_DETAILS.img} alt="coffee" />
+				<img src={itemDetails.image} alt="coffee" />
 			</div>
 			<div className="item-details-content">
 				<div className="section">
-					<h2 className="type">{ITEM_DETAILS.type}</h2>
-					<p className="name">{ITEM_DETAILS.name}</p>
-					<p className="details">{ITEM_DETAILS.detail}</p>
+					<h2 className="type">{itemDetails.type}</h2>
+					<p className="name">{itemDetails.name}</p>
+					<p className="details">{itemDetails.detail}</p>
 
 					<div className="size-selector">
 						<p className="size-selector-label">Size</p>
@@ -71,7 +82,7 @@ function ItemDetails() {
 				</div>
 				<div className="section">
 					<div className="price-container">
-						<p className="price">$ {ITEM_DETAILS.prices[itemSize]}</p>
+						<p className="price">$ {itemDetails?.prices?.[itemSize]}</p>
 					</div>
 
 					<div className="action-button-container">

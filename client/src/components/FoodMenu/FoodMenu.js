@@ -19,13 +19,10 @@ function FoodMenu() {
 	});
 
 	useEffect(() => {
-		updateMenuItems(filter);
-	}, []);
-
-	const updateMenuItems = (type) => {
-		const items = menu.getMenuItemsByType(type);
+		// updateMenuItems(filter);
+		const items = menu.getMenuItemsByType(filter);
 		setMenuItems(items);
-	};
+	}, [filter, categories]);
 
 	const handleMenuItemClick = (itemId) => {
 		navigate(`/home/details/${itemId}`);
@@ -33,11 +30,10 @@ function FoodMenu() {
 
 	const handleItemClick = (e) => {
 		setFilter(e);
-		updateMenuItems(e);
 	};
 
-	const renderMenuItems = () => {
-		return menuItems.map((item) => {
+	const renderMenuItems = () =>
+		menuItems.map((item) => {
 			return (
 				<MenuItem
 					menuItem={item}
@@ -46,7 +42,6 @@ function FoodMenu() {
 				/>
 			);
 		});
-	};
 
 	return (
 		<div className="food-menu-container">

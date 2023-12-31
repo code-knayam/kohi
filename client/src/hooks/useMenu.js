@@ -12,7 +12,13 @@ const useMenu = () => {
 		return items;
 	};
 
-	return { getMenuItemsByType };
+	const getItemDetails = (id) => {
+		for (let index = 0; index < menuItems.length; index++) {
+			if (menuItems[index].id === id) return menuItems[index];
+		}
+	};
+
+	return { getMenuItemsByType, getItemDetails };
 };
 
 export default useMenu;
