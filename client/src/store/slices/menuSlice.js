@@ -4,7 +4,7 @@ import { fetchCategories, fetchMenu } from "../thunks/menuThunk";
 const initialState = {
 	menuItems: [],
 	categories: [],
-	loading: false,
+	loading: true,
 	error: null,
 };
 
@@ -25,14 +25,12 @@ export const menuSlice = createSlice({
 			state.menuItems = action.payload;
 		});
 		builder.addCase(fetchCategories.pending, (state, action) => {
-			state.loading = true;
+			// state.loading = true;
 		});
 		builder.addCase(fetchCategories.rejected, (state, action) => {
-			state.loading = false;
 			state.error = action.error;
 		});
 		builder.addCase(fetchCategories.fulfilled, (state, action) => {
-			state.loading = false;
 			const data = action.payload;
 			state.categories = data[0].categories || [];
 		});

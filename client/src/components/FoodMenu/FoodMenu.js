@@ -19,7 +19,6 @@ function FoodMenu() {
 	});
 
 	useEffect(() => {
-		// updateMenuItems(filter);
 		const items = menu.getMenuItemsByType(filter);
 		setMenuItems(items);
 	}, [filter, categories]);

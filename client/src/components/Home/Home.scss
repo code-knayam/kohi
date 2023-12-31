@@ -11,6 +11,12 @@
 	.content-container {
 		flex-grow: 1;
 		overflow: auto;
+
+		.content-loader {
+			height: 100%;
+			display: grid;
+			place-items: center;
+		}
 	}
 	.navbar-container {
 		width: 100%;
