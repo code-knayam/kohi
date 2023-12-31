@@ -18,7 +18,7 @@ function EthProvider({ children }) {
 	});
 
 	const init = useCallback(async (artifact) => {
-		if (artifact) {
+		if (artifact && window.ethereum) {
 			const web3 = new Web3(window.ethereum);
 			const networkId = await web3.eth.net.getId();
 			const abi = artifact.abi;

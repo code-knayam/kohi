@@ -1,71 +1,43 @@
 import "./FoodMenu.scss";
 import Carousel from "../shared/Carousel/Carousel";
 import MenuItem from "../shared/MenuItem/MenuItem";
-import image1 from "./../../assets/images/coffee-1.png";
-import image2 from "./../../assets/images/coffee-2.jpg";
-import image3 from "./../../assets/images/coffee-3.png";
-import image4 from "./../../assets/images/coffee-4.jpg";
 import { useNavigate } from "react-router-dom";
-
-const MENU_ITEMS = [
-	{
-		id: "mi1",
-		type: "Black Coffee",
-		name: "Iced Americano",
-		img: image1,
-	},
-	{
-		id: "mi2",
-		type: "Winter Special",
-		name: "Cappucino Latte",
-		img: image2,
-	},
-	{
-		id: "mi3",
-		type: "Decaff",
-		name: "Silky Cafe Au Lait",
-		img: image3,
-	},
-	{
-		id: "mi4",
-		type: "Chocolate",
-		name: "Iced Chocolate",
-		img: image4,
-	},
-];
-
-const CAROUSEL_ITEMS = [
-	{
-		id: 1,
-		label: "Popular",
-	},
-	{
-		id: 2,
-		label: "Black Coffee",
-	},
-	{
-		id: 3,
-		label: "Winter Special",
-	},
-	{
-		id: 4,
-		label: "Decaff",
-	},
-	{
-		id: 5,
-		label: "Chocolate",
-	},
-];
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import useMenu from "../../hooks/useMenu";
 
 function FoodMenu() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const menu = useMenu();
+
+	const [filter, setFilter] = useState("recommended");
+	const [menuItems, setMenuItems] = useState([]);
+
+	const { categories } = useSelector(({ menu }) => {
+		return menu;
+	});
+
+	useEffect(() => {
+		updateMenuItems(filter);
+	}, []);
+
+	const updateMenuItems = (type) => {
+		const items = menu.getMenuItemsByType(type);
+		setMenuItems(items);
+	};
 
 	const handleMenuItemClick = (itemId) => {
 		navigate(`/home/details/${itemId}`);
 	};
 
+	const handleItemClick = (e) => {
+		setFilter(e);
+		updateMenuItems(e);
+	};
+
 	const renderMenuItems = () => {
-		return MENU_ITEMS.map((item) => {
+		return menuItems.map((item) => {
 			return (
 				<MenuItem
 					menuItem={item}
@@ -82,7 +54,10 @@ function FoodMenu() {
 				<h2 className="heading">What would you like to drink today?</h2>
 
 				<div className="carousal-container">
-					<Carousel items={CAROUSEL_ITEMS}></Carousel>
+					<Carousel
+						items={categories}
+						handleOnItemClick={handleItemClick}
+					></Carousel>
 				</div>
 			</div>
 
