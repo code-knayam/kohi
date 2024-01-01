@@ -17,7 +17,26 @@ export const cartSlice = createSlice({
 	name: "cart",
 	initialState,
 	reducers: {
-		addItem(state, action) {},
+		addItem(state, action) {
+			console.log(action.payload);
+			const order = action.payload;
+
+			state.count += order.count;
+			state.items.push({
+				id: order.itemId,
+				size: order.size,
+				count: order.count,
+				price: order.price,
+				totalPrice: order.count * order.price,
+			});
+
+			const totalOrderPrice = order.count * order.price;
+			state.price.subTotal += totalOrderPrice;
+			state.price.discount = 0.01 * state.price.subTotal;
+
+			state.price.total =
+				state.price.subTotal + state.price.packingFee - state.price.discount;
+		},
 		removeItem(state, action) {},
 	},
 });

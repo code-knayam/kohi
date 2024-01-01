@@ -7,6 +7,9 @@ import Counter from "../shared/Counter/Counter";
 import Button from "../shared/Button/Button";
 import { useNavigate } from "react-router-dom";
 import useMenu from "../../hooks/useMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/store";
+import Price from "../shared/Price/Price";
 
 const SIZE_ITEMS = [
 	{
@@ -37,6 +40,7 @@ const ITEM_DETAILS = {
 function ItemDetails() {
 	const navigate = useNavigate();
 	const menu = useMenu();
+	const dispatch = useDispatch();
 	const { id } = useParams();
 
 	const [cartCount, setCartCount] = useState(1);
@@ -58,7 +62,15 @@ function ItemDetails() {
 	};
 
 	const handleAddToCart = () => {
-		navigate("/cart");
+		dispatch(
+			addItem({
+				itemId: itemDetails.id,
+				price: itemDetails.prices[itemSize],
+				count: cartCount,
+				size: SIZE_ITEMS[itemSize].label,
+			})
+		);
+		// navigate("/cart");
 	};
 
 	return (
@@ -82,7 +94,9 @@ function ItemDetails() {
 				</div>
 				<div className="section">
 					<div className="price-container">
-						<p className="price">$ {itemDetails?.prices?.[itemSize]}</p>
+						<p className="price">
+							<Price value={itemDetails?.prices?.[itemSize]} />
+						</p>
 					</div>
 
 					<div className="action-button-container">

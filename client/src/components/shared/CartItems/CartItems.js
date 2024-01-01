@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMultiply, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./CartItems.scss";
+import Price from "../Price/Price";
 
 function CartItems({ orderDetails, enableEdit }) {
 	const renderDeleteIcon = () => {
@@ -14,7 +15,7 @@ function CartItems({ orderDetails, enableEdit }) {
 	};
 
 	const renderOrderItems = () => {
-		return orderDetails.order_items.map((item) => {
+		return orderDetails.items.map((item) => {
 			return (
 				<div className="order-item">
 					<div className="item-info">
@@ -27,7 +28,9 @@ function CartItems({ orderDetails, enableEdit }) {
 						</div>
 						<span className="size">{item.size}</span>
 					</div>
-					<div className="item-price">{item.totalPrice}</div>
+					<div className="item-price">
+						<Price value={item.totalPrice} />
+					</div>
 					{renderDeleteIcon(item)}
 				</div>
 			);
@@ -41,21 +44,29 @@ function CartItems({ orderDetails, enableEdit }) {
 			<div className="cart-price-container">
 				<div className="price-item">
 					<span className="label">Sub Total</span>
-					<span className="price">{orderDetails.price.subTotal}</span>
+					<span className="price">
+						<Price value={orderDetails.price.subTotal} />
+					</span>
 				</div>
 
 				<div className="price-item">
 					<span className="label">Packing Fee</span>
-					<span className="price">{orderDetails.price.packingFee}</span>
+					<span className="price">
+						<Price value={orderDetails.price.packingFee} />
+					</span>
 				</div>
 				<div className="price-item">
 					<span className="label">Discount</span>
-					<span className="price">{orderDetails.price.discount}</span>
+					<span className="price">
+						- <Price value={orderDetails.price.discount} />
+					</span>
 				</div>
 
 				<div className="price-item total-price">
 					<span className="label">Total</span>
-					<span className="price">{orderDetails.price.total}</span>
+					<span className="price">
+						<Price value={orderDetails.price.total} />
+					</span>
 				</div>
 			</div>
 		</>

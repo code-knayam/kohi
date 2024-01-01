@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import Button from "../shared/Button/Button";
 import CartItems from "../shared/CartItems/CartItems";
 import "./Cart.scss";
-import useCheckoutCart from "../../hooks/useCart";
+import useCart from "../../hooks/useCart";
 import Loader from "../shared/Loader/Loader";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CART_DETAILS = {
 	price: {
@@ -31,9 +31,17 @@ const CART_DETAILS = {
 
 function Cart() {
 	const navigate = useNavigate();
-	const { purchaseCoffee } = useCheckoutCart();
+	const { purchaseCoffee } = useCart();
+	const cart = useCart();
 
+	const [cartDetails, setCartDetails] = useState(null);
 	const [showLoader, setShowLoader] = useState(false);
+
+	useEffect(() => {
+		const details = cart.getCartDetails();
+		setCartDetails(details);
+		// setShowLoader(false);
+	}, []);
 
 	const onContinueToPay = async () => {
 		setShowLoader(true);
@@ -48,10 +56,10 @@ function Cart() {
 				<div class="cart-loader">
 					<Loader />
 				</div>
-			) : (
+			) : cartDetails && cartDetails.count > 0 ? (
 				<>
 					<div className="cart-contents-container cart-section">
-						<CartItems orderDetails={CART_DETAILS} enableEdit={true} />
+						<CartItems orderDetails={cartDetails} enableEdit={true} />
 					</div>
 					<Button
 						handleOnClick={onContinueToPay}
@@ -61,6 +69,8 @@ function Cart() {
 						Continue To Pay
 					</Button>
 				</>
+			) : (
+				<p>Add something to cart</p>
 			)}
 		</div>
 	);

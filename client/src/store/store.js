@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { menuReducer } from "./slices/menuSlice";
 import { fetchCategories, fetchMenu } from "./thunks/menuThunk";
-import { cartReducer } from "./slices/cartSlice";
+import { cartReducer, addItem, removeItem } from "./slices/cartSlice";
 
 const store = configureStore({
 	reducer: {
@@ -11,4 +11,4 @@ const store = configureStore({
 });
 
 export { store };
-export { fetchCategories, fetchMenu };
+export { fetchCategories, fetchMenu, addItem, removeItem };
