@@ -1,17 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {
-	menuReducer,
-	fetchAllItems,
-	getMenuItemsByType,
-	getItemDetails,
-} from "./slices/menuSlice";
+import { menuReducer } from "./slices/menuSlice";
 import { fetchCategories, fetchMenu } from "./thunks/menuThunk";
+import { cartReducer } from "./slices/cartSlice";
 
 const store = configureStore({
 	reducer: {
 		menu: menuReducer,
+		cart: cartReducer,
 	},
 });
 
-export { store, fetchAllItems, getMenuItemsByType, getItemDetails };
+export { store };
 export { fetchCategories, fetchMenu };

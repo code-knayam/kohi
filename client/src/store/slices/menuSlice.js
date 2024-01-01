@@ -44,7 +44,7 @@ export const menuSlice = createSlice({
 	},
 });
 
-export const { fetchAllItems, getMenuItemsByType, getItemDetails } =
-	menuSlice.actions;
+// export const { fetchAllItems, getMenuItemsByType, getItemDetails } =
+// menuSlice.actions;
 
 export const menuReducer = menuSlice.reducer;
