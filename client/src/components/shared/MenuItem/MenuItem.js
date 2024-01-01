@@ -8,7 +8,7 @@ function MenuItem({ menuItem, clickHandler }) {
 				<p className="name">{menuItem.name}</p>
 			</div>
 			<div className="image-container">
-				<img src={menuItem.img} alt={menuItem.name} />
+				<img src={menuItem.image} alt={menuItem.name} />
 			</div>
 		</div>
 	);

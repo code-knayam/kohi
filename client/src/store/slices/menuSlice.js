@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCategories, fetchMenu } from "../thunks/menuThunk";
+import createImagePath from "../../utils/image-path-util";
+import { CONSTANTS } from "../../utils/app-constants";
 
 const initialState = {
 	menuItems: [],
@@ -22,7 +24,12 @@ export const menuSlice = createSlice({
 		});
 		builder.addCase(fetchMenu.fulfilled, (state, action) => {
 			state.loading = false;
-			state.menuItems = action.payload;
+			const payload = action.payload;
+			const items = payload.map((item) => {
+				item.image = createImagePath(item.type);
+				return item;
+			});
+			state.menuItems = items;
 		});
 		builder.addCase(fetchCategories.pending, (state, action) => {
 			// state.loading = true;
@@ -32,7 +39,7 @@ export const menuSlice = createSlice({
 		});
 		builder.addCase(fetchCategories.fulfilled, (state, action) => {
 			const data = action.payload;
-			state.categories = data[0].categories || [];
+			state.categories = [CONSTANTS.RECOMMENDED, ...data[0].categories] || [];
 		});
 	},
 });

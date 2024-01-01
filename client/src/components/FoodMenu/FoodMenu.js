@@ -11,12 +11,16 @@ function FoodMenu() {
 	const dispatch = useDispatch();
 	const menu = useMenu();
 
-	const [filter, setFilter] = useState("recommended");
+	const [filter, setFilter] = useState("");
 	const [menuItems, setMenuItems] = useState([]);
 
 	const { categories } = useSelector(({ menu }) => {
 		return menu;
 	});
+
+	useEffect(() => {
+		setFilter(categories[0]);
+	}, [categories]);
 
 	useEffect(() => {
 		const items = menu.getMenuItemsByType(filter);

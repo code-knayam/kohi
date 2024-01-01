@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { CONSTANTS } from "../utils/app-constants";
 
 const useMenu = () => {
 	const { menuItems } = useSelector(({ menu }) => {
@@ -6,6 +7,9 @@ const useMenu = () => {
 	});
 
 	const getMenuItemsByType = (type) => {
+		if (type === CONSTANTS.RECOMMENDED) {
+			return menuItems.slice(0, 5);
+		}
 		const items = menuItems.filter((item) => {
 			return item.type.toLowerCase() === type.toLowerCase();
 		});
