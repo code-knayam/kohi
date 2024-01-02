@@ -28,32 +28,30 @@ contract CartSale {
     constructor() {}
 
     function purchaseCoffee(
-        uint _amount,
         uint orderId,
         uint userId,
         uint items
     ) public payable {
-        uint256 amountInWei = _amount * 1e18;
-
+        uint256 amount = msg.value;
         require(
-            msg.value == amountInWei,
+            msg.value > 0,
             "Sent eth amount must match the transaction value"
         );
         require(
-            address(this).balance >= amountInWei,
+            address(this).balance >= amount,
             "Insufficient account balance"
         );
 
-        Order memory newOrder = Order(orderId, _amount, items, block.timestamp);
+        Order memory newOrder = Order(orderId, amount, items, block.timestamp);
         usersOrders[msg.sender].userId = userId;
         usersOrders[msg.sender].orders[
             usersOrders[msg.sender].numOrders
         ] = newOrder;
         usersOrders[msg.sender].numOrders++;
 
-        payable(sellerAccount).transfer(amountInWei);
+        payable(sellerAccount).transfer(amount);
 
-        emit TransactionComplete(msg.sender, sellerAccount, amountInWei);
+        emit TransactionComplete(msg.sender, sellerAccount, amount);
     }
 
     function getOrderInfo(
