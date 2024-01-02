@@ -40,11 +40,18 @@ export const cartSlice = createSlice({
 				state.price.subTotal + state.price.packingFee - state.price.discount;
 
 			state.price.gasFee = order.gasPrice;
-			state.price.priceInEth = state.price.total * 50735;
+			state.price.priceInEth = state.price.total * 5073500;
 
-			state.price.totalEth = state.price.gasFee + state.price.priceInEth;
+			state.price.totalEth = Math.ceil(
+				state.price.gasFee + state.price.priceInEth
+			);
 		},
 		removeItem(state, action) {},
+		cartOrdered(state, action) {
+			state.items = [];
+			state.count = 0;
+			state.price = initialState.price;
+		},
 	},
 });
 

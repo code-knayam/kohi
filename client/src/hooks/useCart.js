@@ -13,16 +13,23 @@ const useCart = () => {
 	const purchaseCoffee = async (val) => {
 		try {
 			const bl = await ethState.contract.methods
-				.purchaseCoffee(1, 123, 321, 1)
+				.purchaseCoffee(123, 321, cartDetails.count)
 				.send({
 					from: accountDetails.acc,
-					value: 1000000000000000000,
-					gas: 1000000,
+					value: cartDetails.price.totalEth,
+					gas: cartDetails.price.gasFee,
 				});
 			console.log(bl);
 		} catch (e) {
 			console.log(e);
 		}
+	};
+
+	const getOrderDetails = async (val) => {
+		const order = await ethState.contract.methods
+			.getOrderInfo(accountDetails.acc, "0")
+			.call();
+		console.log({ order });
 	};
 
 	const getCartDetails = async () => {
@@ -42,10 +49,10 @@ const useCart = () => {
 	const getGasPrice = async () => {
 		// const gasPrice = await ethState.web.eth.getGasPrice();
 		// const gasPriceInWei = ethState.web.utils.fromWei(gasPrice, "ether");
-		return 10000;
+		return 1000000;
 	};
 
-	return { purchaseCoffee, getCartDetails, getGasPrice };
+	return { purchaseCoffee, getCartDetails, getGasPrice, getOrderDetails };
 };
 
 export default useCart;

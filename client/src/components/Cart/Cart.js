@@ -6,29 +6,6 @@ import useCart from "../../hooks/useCart";
 import Loader from "../shared/Loader/Loader";
 import { useEffect, useState } from "react";
 
-const CART_DETAILS = {
-	price: {
-		subTotal: "4.95",
-		packingFee: "2",
-		discount: "1",
-		total: "5.95",
-	},
-	order_items: [
-		{
-			name: "Cappucino latte",
-			count: "2",
-			size: "small",
-			totalPrice: "4.8",
-		},
-		{
-			name: "Cappucino latte",
-			count: "1",
-			size: "large",
-			totalPrice: "3",
-		},
-	],
-};
-
 function Cart() {
 	const navigate = useNavigate();
 	const { purchaseCoffee } = useCart();
@@ -42,14 +19,12 @@ function Cart() {
 			const details = await cart.getCartDetails();
 			setCartDetails(details);
 		}
-		// setShowLoader(false);
-
 		getCartDetails();
 	}, []);
 
 	const onContinueToPay = async () => {
 		setShowLoader(true);
-		await purchaseCoffee(1);
+		await purchaseCoffee();
 		navigate("/cart/123");
 		setShowLoader(false);
 	};
