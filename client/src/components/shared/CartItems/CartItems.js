@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 import { faMultiply, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./CartItems.scss";
 import Price from "../Price/Price";
@@ -15,9 +16,9 @@ function CartItems({ orderDetails, enableEdit }) {
 	};
 
 	const renderOrderItems = () => {
-		return orderDetails.items.map((item) => {
+		return orderDetails.items.map((item, index) => {
 			return (
-				<div className="order-item">
+				<div className="order-item" key={index}>
 					<div className="item-info">
 						<div className="item-desc">
 							<span className="count">{item.count}</span>
@@ -30,8 +31,8 @@ function CartItems({ orderDetails, enableEdit }) {
 					</div>
 					<div className="item-price">
 						<Price value={item.totalPrice} />
+						{renderDeleteIcon(item)}
 					</div>
-					{renderDeleteIcon(item)}
 				</div>
 			);
 		});
@@ -66,6 +67,36 @@ function CartItems({ orderDetails, enableEdit }) {
 					<span className="label">Total</span>
 					<span className="price">
 						<Price value={orderDetails.price.total} />
+					</span>
+				</div>
+
+				<div className="price-item ">
+					<span className="label">
+						<FontAwesomeIcon icon={faEthereum} />
+						Price
+					</span>
+					<span className="price">
+						<Price currency="ETH" value={orderDetails.price.priceInEth} />
+					</span>
+				</div>
+
+				<div className="price-item ">
+					<span className="label">
+						<FontAwesomeIcon icon={faEthereum} />
+						Gas Fee
+					</span>
+					<span className="price">
+						<Price currency="ETH" value={orderDetails.price.gasFee} />
+					</span>
+				</div>
+
+				<div className="price-item total-price">
+					<span className="label">
+						<FontAwesomeIcon icon={faEthereum} />
+						Total WEI
+					</span>
+					<span className="price">
+						<Price currency="ETH" value={orderDetails.price.totalEth} />
 					</span>
 				</div>
 			</div>

@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./ItemDetails.scss";
-import image4 from "./../../assets/images/coffee-2.jpg";
 import SelectableList from "../shared/SelectableList/SelectableList";
 import Counter from "../shared/Counter/Counter";
 import Button from "../shared/Button/Button";
-import { useNavigate } from "react-router-dom";
 import useMenu from "../../hooks/useMenu";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/store";
 import Price from "../shared/Price/Price";
+import useCart from "../../hooks/useCart";
 
 const SIZE_ITEMS = [
 	{
@@ -29,17 +28,9 @@ const SIZE_ITEMS = [
 	},
 ];
 
-const ITEM_DETAILS = {
-	img: image4,
-	type: "Winter Special",
-	name: "Capucino Latte",
-	detail: "Comples, yet smooth flavour made to order.",
-	prices: ["1.2", "2.4", "3.0"],
-};
-
 function ItemDetails() {
-	const navigate = useNavigate();
 	const menu = useMenu();
+	const cart = useCart();
 	const dispatch = useDispatch();
 	const { id } = useParams();
 
@@ -61,16 +52,17 @@ function ItemDetails() {
 		setItemSize(index);
 	};
 
-	const handleAddToCart = () => {
+	const handleAddToCart = async () => {
+		const gasPrice = await cart.getGasPrice();
 		dispatch(
 			addItem({
 				itemId: itemDetails.id,
 				price: itemDetails.prices[itemSize],
 				count: cartCount,
 				size: SIZE_ITEMS[itemSize].label,
+				gasPrice,
 			})
 		);
-		// navigate("/cart");
 	};
 
 	return (

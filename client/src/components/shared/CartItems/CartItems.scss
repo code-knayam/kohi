@@ -37,6 +37,8 @@
 		}
 
 		.item-price {
+			display: flex;
+			flex-direction: column;
 			text-align: right;
 		}
 
@@ -61,6 +63,10 @@
 
 		.label {
 			font-size: 1.4rem;
+
+			svg {
+				margin-right: var(--spacing-3);
+			}
 		}
 
 		&.total-price {

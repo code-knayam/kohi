@@ -10,6 +10,7 @@ const initialState = {
 		total: 0,
 		gasFee: 0,
 		priceInEth: 0,
+		totalEth: 0,
 	},
 };
 
@@ -33,9 +34,15 @@ export const cartSlice = createSlice({
 			const totalOrderPrice = order.count * order.price;
 			state.price.subTotal += totalOrderPrice;
 			state.price.discount = 0.01 * state.price.subTotal;
+			state.price.packingFee += 0.02 * order.count;
 
 			state.price.total =
 				state.price.subTotal + state.price.packingFee - state.price.discount;
+
+			state.price.gasFee = order.gasPrice;
+			state.price.priceInEth = state.price.total * 50735;
+
+			state.price.totalEth = state.price.gasFee + state.price.priceInEth;
 		},
 		removeItem(state, action) {},
 	},

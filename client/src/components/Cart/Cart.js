@@ -38,9 +38,13 @@ function Cart() {
 	const [showLoader, setShowLoader] = useState(false);
 
 	useEffect(() => {
-		const details = cart.getCartDetails();
-		setCartDetails(details);
+		async function getCartDetails() {
+			const details = await cart.getCartDetails();
+			setCartDetails(details);
+		}
 		// setShowLoader(false);
+
+		getCartDetails();
 	}, []);
 
 	const onContinueToPay = async () => {

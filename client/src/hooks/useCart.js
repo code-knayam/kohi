@@ -25,7 +25,7 @@ const useCart = () => {
 		}
 	};
 
-	const getCartDetails = () => {
+	const getCartDetails = async () => {
 		const cart = {};
 		console.log(cartDetails);
 		cart.items = cartDetails.items.map((item) => {
@@ -33,13 +33,19 @@ const useCart = () => {
 			return { ...item, name: details.name };
 		});
 
-		cart.price = cartDetails.price;
+		cart.price = { ...cartDetails.price };
 		cart.count = cartDetails.count;
 		console.log(cart);
 		return cart;
 	};
 
-	return { purchaseCoffee, getCartDetails };
+	const getGasPrice = async () => {
+		// const gasPrice = await ethState.web.eth.getGasPrice();
+		// const gasPriceInWei = ethState.web.utils.fromWei(gasPrice, "ether");
+		return 10000;
+	};
+
+	return { purchaseCoffee, getCartDetails, getGasPrice };
 };
 
 export default useCart;
