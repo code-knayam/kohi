@@ -25,13 +25,6 @@ const useCart = () => {
 		}
 	};
 
-	const getOrderDetails = async (val) => {
-		const order = await ethState.contract.methods
-			.getOrderInfo(accountDetails.acc, "0")
-			.call();
-		console.log({ order });
-	};
-
 	const getCartDetails = async () => {
 		const cart = {};
 		console.log(cartDetails);
@@ -52,7 +45,7 @@ const useCart = () => {
 		return 1000000;
 	};
 
-	return { purchaseCoffee, getCartDetails, getGasPrice, getOrderDetails };
+	return { purchaseCoffee, getCartDetails, getGasPrice };
 };
 
 export default useCart;
