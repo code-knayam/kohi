@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createOrder, getOrderDetails } from "../thunks/cartThunk";
 
 const initialState = {
 	items: [],
@@ -12,6 +13,8 @@ const initialState = {
 		priceInEth: 0,
 		totalEth: 0,
 	},
+	error: null,
+	loading: false,
 };
 
 export const cartSlice = createSlice({
@@ -52,6 +55,27 @@ export const cartSlice = createSlice({
 			state.count = 0;
 			state.price = initialState.price;
 		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(createOrder.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(createOrder.rejected, (state, action) => {
+			state.loading = false;
+		});
+		builder.addCase(createOrder.fulfilled, (state, action) => {
+			state.loading = false;
+		});
+
+		builder.addCase(getOrderDetails.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(getOrderDetails.rejected, (state, action) => {
+			state.loading = false;
+		});
+		builder.addCase(getOrderDetails.fulfilled, (state, action) => {
+			state.loading = false;
+		});
 	},
 });
 
