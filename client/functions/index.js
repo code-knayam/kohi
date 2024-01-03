@@ -28,14 +28,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 exports.createOrder = onRequest(async (req, res) => {
-	const data = req.query.payload;
-
+	const data = req.body;
 	const db = await getFirestore(app);
-	const newOrderRef = db.collection("orders").doc();
+	const newOrderRef = db.collection("orders").doc(data.id);
 
 	await newOrderRef.set(data);
 
 	res.json({ result: "message with ID: added" });
+});
+
+exports.getOrderDetails = onRequest(async (req, res) => {
+	const id = req.params["0"];
+	const db = await getFirestore(app);
+	const ordersRef = db.collection("orders").doc(id);
+	const doc = await ordersRef.get();
+	const data = doc.data();
+
+	res.json(data);
 });
 
 exports.getItems = onRequest(async (req, res) => {
