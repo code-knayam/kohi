@@ -6,52 +6,52 @@ import CartItems from "../shared/CartItems/CartItems";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useOrder from "../../hooks/useOrder";
-import useCart from "../../hooks/useCart";
-
-const ORDER_DETAILS = {
-	orderId: "12434",
-	transactionHash: "asdasd121231",
-	price: {
-		subTotal: "4.95",
-		packingFee: "2",
-		discount: "1",
-		total: "5.95",
-	},
-	items: [
-		{
-			name: "Cappucino latte",
-			count: "2",
-			size: "small",
-			totalPrice: "4.8",
-		},
-		{
-			name: "Cappucino latte",
-			count: "1",
-			size: "large",
-			totalPrice: "3",
-		},
-	],
-};
+import Loader from "../shared/Loader/Loader";
+import { useDispatch, useSelector } from "react-redux";
+import { getOrderDetails } from "../../store/store";
 
 function Orders() {
-	const order = useOrder();
-	const cart = useCart();
+	const useOrderHook = useOrder();
+	const dispatch = useDispatch();
 
 	const [orderDetails, setOrderDetails] = useState(null);
 	const { id } = useParams();
+	const [showLoader, setShowLoader] = useState(true);
+
+	const { loading, error, orderFetched, order } = useSelector(({ order }) => {
+		return order;
+	});
 
 	useEffect(() => {
-		order.getOrderDetails(id);
-		async function getCartDetails() {
-			const details = await cart.getCartDetails();
-			setOrderDetails(details);
+		console.log("loading", loading);
+
+		setShowLoader(loading);
+	}, [loading]);
+
+	useEffect(() => {
+		if (orderFetched) {
+			setOrderDetails(order);
 		}
-		getCartDetails();
+	}, [orderFetched]);
+
+	useEffect(() => {
+		async function getOrder() {
+			// const details = useOrderHook.getOrderDetails(id);
+			dispatch(getOrderDetails(id));
+			setShowLoader(false);
+		}
+
+		setShowLoader(true);
+		getOrder();
 	}, [id]);
 
 	return (
 		<>
-			{orderDetails && orderDetails.count > 0 ? (
+			{showLoader ? (
+				<div class="cart-loader">
+					<Loader />
+				</div>
+			) : (
 				<div className="order-container">
 					<div className="greeting-container cart-section">
 						<span className="icon">
@@ -62,7 +62,7 @@ function Orders() {
 					</div>
 					<div className="order-id-container cart-section">
 						<span className="label">Order Id</span>
-						<span id="order-id">{ORDER_DETAILS.orderId}</span>
+						<span id="order-id">{orderDetails.orderId}</span>
 					</div>
 					<div className="cart-contents-container cart-section">
 						<CartItems orderDetails={orderDetails} />
@@ -71,8 +71,6 @@ function Orders() {
 						Show Transaction Hash
 					</Button>
 				</div>
-			) : (
-				"Nothing"
 			)}
 		</>
 	);

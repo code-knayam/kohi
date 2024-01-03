@@ -5,14 +5,34 @@ import "./Cart.scss";
 import useCart from "../../hooks/useCart";
 import Loader from "../shared/Loader/Loader";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createOrder } from "../../store/store";
 
 function Cart() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const { purchaseCoffee } = useCart();
 	const cart = useCart();
 
 	const [cartDetails, setCartDetails] = useState(null);
 	const [showLoader, setShowLoader] = useState(false);
+
+	const { loading, error, orderCreated } = useSelector(({ order }) => {
+		return order;
+	});
+
+	useEffect(() => {
+		console.log("loading", loading);
+
+		setShowLoader(loading);
+	}, [loading]);
+
+	useEffect(() => {
+		console.log("orderCreated", orderCreated);
+		if (orderCreated) {
+			navigate("/cart/123");
+		}
+	}, [orderCreated, navigate]);
 
 	useEffect(() => {
 		async function getCartDetails() {
@@ -25,7 +45,7 @@ function Cart() {
 	const onContinueToPay = async () => {
 		setShowLoader(true);
 		await purchaseCoffee();
-		navigate("/cart/123");
+		dispatch(createOrder(cartDetails));
 		setShowLoader(false);
 	};
 

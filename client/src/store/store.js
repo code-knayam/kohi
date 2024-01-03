@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { menuReducer } from "./slices/menuSlice";
 import { fetchCategories, fetchMenu } from "./thunks/menuThunk";
+import { createOrder, getOrderDetails } from "./thunks/cartThunk";
 import { cartReducer, addItem, removeItem } from "./slices/cartSlice";
 import { orderReducer } from "./slices/orderSlice";
 
@@ -13,4 +14,11 @@ const store = configureStore({
 });
 
 export { store };
-export { fetchCategories, fetchMenu, addItem, removeItem };
+export {
+	fetchCategories,
+	fetchMenu,
+	addItem,
+	removeItem,
+	createOrder,
+	getOrderDetails,
+};
